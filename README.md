@@ -21,5 +21,5 @@ python -m flask run
 ## Build & Run on Docker
 ```
 docker build -t myflask/color-boxes:0.1 .  
-docker run -p 5001:5001 myflask/color-boxes:0.1  
+docker run -p 5000:5000 myflask/color-boxes:0.1
 ```
