@@ -7,7 +7,7 @@ https://intel.udemy.com/course/docker-essentials-for-python-developers/learn/lec
 ```
 git clone https://gitlab.devtools.intel.com/cheahchr/color-box.git
 cd color-box
-python -m venv color-box/env
+python -m venv env
 env\Scripts\activate.bat
 ```
 
