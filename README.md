@@ -8,27 +8,60 @@ https://intel.udemy.com/course/docker-essentials-for-python-developers/learn/lec
 git clone https://gitlab.devtools.intel.com/cheahchr/color-box.git
 cd color-box
 python -m venv env
-env\Scripts\activate.bat
 ```
 
-## Build & Run (Windows CMD)
+### activate env (Windows)
+```
+env\Scripts\activate.bat
+```
+### activate env (Linux)
+```
+source env/bin/activate
+```
+
+## Build & Run
 ```
 pip install -r requirements.txt
+```
+
+
+## Run (Windows CMD)
+```
 set FLASK_APP=color-boxes.py
 python -m flask run -port 5001
 ```
 
-## Build & Run (Powershell)
+## Run (Powershell)
 ```
-pip install -r requirements.txt
-$env:FLASK_APP="color-boxes.py"
 python -m flask run --port 5002
+```
+
+## Run with gunicorn (Linux)
+```
+gunicorn --bind 0.0.0.0:5000 wsgi:app
 ```
 
 ## Build & Run on Docker
 ```
 docker build -t myflask/color-boxes:0.1 .  
 docker run -p 5000:5000 myflask/color-boxes:0.1
+```
+
+## Deploy to Heroku
+Source: https://devcenter.heroku.com/articles/getting-started-with-python
+
+### Define a Procfile
+Use a Procfile, a text file in the root directory with the following content
+```
+web: gunicorn color-box.wsgi --log-file -
+```
+
+Steps
+```
+heroku craete
+git push heroku master
+heroku ps:scale web=1
+heroku open
 ```
 
 ## Available API

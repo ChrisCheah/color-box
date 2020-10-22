@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    'color-boxes.py' Module Description
+    'color_boxes.py' Module Description
     This module defines code to run an example RESRTful API Server
     Module defines following APIs:
         GET     '/'                                - returns greetings string
