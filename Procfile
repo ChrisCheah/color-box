@@ -1,0 +1,1 @@
+web: gunicorn color-box.wsgi --log-file -
