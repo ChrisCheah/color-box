@@ -56,7 +56,7 @@ Use a Procfile, a text file in the root directory with the following content
 web: gunicorn color-box.wsgi --log-file -
 ```
 
-Steps
+### Steps
 ```
 heroku craete
 git push heroku master
@@ -65,6 +65,12 @@ heroku open
 ```
 
 ## Deploy to IBM Cloud / Cloud Foundry
+Cloud Foundry cli for python fail to build in Windows cmd. Run this in a Linux environment. The following was done in Windows 10 WSL2 Ubuntu 20
+### Pre-requisite
+IBM Cloud account with Cloud Foundry Org & Space setup in the selected Region.
+1. Install ibmcloud cli
+2. Logon and verify that 'ibmcloud target' return valid setup.
+
 ### Define a manifest file
 Add manifest.yml in the root directory with the following content
 ```
@@ -78,7 +84,7 @@ applications:
         - https://github.com/cloudfoundry/python-buildpack.git
 ```
 
-Steps
+### Steps:
 ```
 ibmcloud cf push
 ```
