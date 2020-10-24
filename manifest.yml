@@ -1,0 +1,4 @@
+applications:
+    - name: color-boxes
+      random-route: true
+      memory: 64M
