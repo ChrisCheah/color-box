@@ -2,31 +2,18 @@
 #Docker Essentials for Python Developers
 https://intel.udemy.com/course/docker-essentials-for-python-developers/learn/lecture/17259344#notes
 
-# color box
+# Getting Started
+[ [Linux](GettingStartedLinux) ]
 ## Setting Up
 ```
 git clone https://gitlab.devtools.intel.com/cheahchr/color-box.git
 cd color-box
 python -m venv env
-```
-
-### activate env (Windows)
-```
 env\Scripts\activate.bat
 ```
-### activate env (Linux)
-```
-source env/bin/activate
-```
-
 ## Build & Run
 ```
 pip install -r requirements.txt
-```
-
-
-## Run (Windows CMD)
-```
 set FLASK_APP=color-boxes.py
 python -m flask run -port 5001
 ```
@@ -36,15 +23,15 @@ python -m flask run -port 5001
 python -m flask run --port 5002
 ```
 
-## Run with gunicorn (Linux)
-```
-gunicorn --bind 0.0.0.0:5000 wsgi:app
-```
-
 ## Build & Run on Docker
 ```
 docker build -t myflask/color-boxes:0.1 .  
 docker run -p 5000:5000 myflask/color-boxes:0.1
+```
+## Deploy to Azure
+Source: https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=bash&pivots=python-framework-flask 
+```
+az webapp up --sku F1 --name intc-color-box-demo1
 ```
 
 ## Deploy to Heroku
