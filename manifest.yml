@@ -1,0 +1,8 @@
+---
+version: 1
+applications:
+    - name: color-boxes
+      random-route: true
+      memory: 64M
+      buildpacks: 
+        - https://github.com/cloudfoundry/python-buildpack.git
