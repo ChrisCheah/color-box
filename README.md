@@ -75,7 +75,7 @@ applications:
       random-route: true
       memory: 64M
       buildpacks: 
-        - python_buildpack
+        - https://github.com/cloudfoundry/python-buildpack.git
 ```
 
 Steps
