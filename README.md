@@ -64,6 +64,25 @@ heroku ps:scale web=1
 heroku open
 ```
 
+## Deploy to IBM Cloud / Cloud Foundry
+### Define a manifest file
+Add manifest.yml in the root directory with the following content
+```
+---
+version: 1
+applications:
+    - name: color-boxes
+      random-route: true
+      memory: 64M
+      buildpacks: 
+        - python_buildpack
+```
+
+Steps
+```
+ibmcloud cf push
+```
+
 ## Available API
 ```
 GET     '/'                                - returns greetings string
