@@ -19,47 +19,9 @@ set FLASK_APP=color-boxes.py
 python -m flask run -port 5001
 ```
 
-## Run (Powershell)
-``` shell
-python -m flask run --port 5002
-```
-
-## Build & Run on Docker
-``` shell
-docker build -t myflask/color-boxes:0.1 .  
-docker run -p 5000:5000 myflask/color-boxes:0.1
-```
-## Deploy to Azure
-Source: https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=bash&pivots=python-framework-flask 
-``` shell
-az webapp up --sku F1 --name intc-color-box-demo1
-```
-
-## Deploy to Heroku
-Source: https://devcenter.heroku.com/articles/getting-started-with-python
-
-### Define a Procfile
-Use a Procfile, a text file in the root directory with the following content
-``` shell
-web: gunicorn color-box.wsgi --log-file -
-```
-
-### Steps
-``` shell
-heroku craete
-git push heroku master
-heroku ps:scale web=1
-heroku open
-```
-
-## Deploy to IBM Cloud / Cloud Foundry
-Cloud Foundry cli for python fail to build in Windows cmd. Run this in a Linux environment. The following was done in Windows 10 WSL2 Ubuntu 20
-### Pre-requisite
-IBM Cloud account with Cloud Foundry Org & Space setup in the selected Region.
-1. Install ibmcloud cli
-2. Logon and verify that 'ibmcloud target' return valid setup.
-
-### Define a manifest file
+## Deploy To Cloud Foundry
+[ [Other Deployment Options](DeploymentOptions) ]   
+### Define a manifest file (optional)
 Add manifest.yml in the root directory with the following content
 ``` yaml
 ---
@@ -74,7 +36,7 @@ applications:
 
 ### Steps:
 ``` shell
-ibmcloud cf push
+cf push
 ```
 
 ## Available API
