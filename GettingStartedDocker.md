@@ -1,6 +1,8 @@
 
-# Getting Started
-[Main](README)
+#Docker Essentials for Python Developers
+https://intel.udemy.com/course/docker-essentials-for-python-developers/learn/lecture/17259344#notes
+
+# color box
 ## Setting Up
 ```
 git clone https://gitlab.devtools.intel.com/cheahchr/color-box.git

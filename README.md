@@ -5,32 +5,33 @@ https://intel.udemy.com/course/docker-essentials-for-python-developers/learn/lec
 # Getting Started
 [ [Linux](GettingStartedLinux) ]
 ## Setting Up
-```
+``` shell
 git clone https://gitlab.devtools.intel.com/cheahchr/color-box.git
 cd color-box
 python -m venv env
 env\Scripts\activate.bat
 ```
 ## Build & Run
-```
+``` shell
 pip install -r requirements.txt
+# $env:FLASK_APP = "color-boxes.py" ## Powershell
 set FLASK_APP=color-boxes.py
 python -m flask run -port 5001
 ```
 
 ## Run (Powershell)
-```
+``` shell
 python -m flask run --port 5002
 ```
 
 ## Build & Run on Docker
-```
+``` shell
 docker build -t myflask/color-boxes:0.1 .  
 docker run -p 5000:5000 myflask/color-boxes:0.1
 ```
 ## Deploy to Azure
 Source: https://docs.microsoft.com/en-us/azure/app-service/quickstart-python?tabs=bash&pivots=python-framework-flask 
-```
+``` shell
 az webapp up --sku F1 --name intc-color-box-demo1
 ```
 
@@ -39,12 +40,12 @@ Source: https://devcenter.heroku.com/articles/getting-started-with-python
 
 ### Define a Procfile
 Use a Procfile, a text file in the root directory with the following content
-```
+``` shell
 web: gunicorn color-box.wsgi --log-file -
 ```
 
 ### Steps
-```
+``` shell
 heroku craete
 git push heroku master
 heroku ps:scale web=1
@@ -60,7 +61,7 @@ IBM Cloud account with Cloud Foundry Org & Space setup in the selected Region.
 
 ### Define a manifest file
 Add manifest.yml in the root directory with the following content
-```
+``` yaml
 ---
 version: 1
 applications:
@@ -72,7 +73,7 @@ applications:
 ```
 
 ### Steps:
-```
+``` shell
 ibmcloud cf push
 ```
 
