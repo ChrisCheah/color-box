@@ -3,7 +3,7 @@
 https://intel.udemy.com/course/docker-essentials-for-python-developers/learn/lecture/17259344#notes
 
 # Getting Started
-[ [Linux](GettingStartedLinux) ]
+[ [Linux](GettingStartedLinux.md) ]
 ## Setting Up
 ``` shell
 git clone https://gitlab.devtools.intel.com/cheahchr/color-box.git
@@ -15,12 +15,12 @@ env\Scripts\activate.bat
 ``` shell
 pip install -r requirements.txt
 # $env:FLASK_APP = "color-boxes.py" ## Powershell
-set FLASK_APP=color-boxes.py
-python -m flask run -port 5001
+set FLASK_APP=color_boxes.py
+python -m flask run --port 5001
 ```
 
 ## Deploy To Cloud Foundry
-[ [Other Deployment Options](DeploymentOptions) ]   
+[ [PaaS Deployment Options](PaaSDeploymentOptions.md) | [IaaS Deployment Options](IaaSDeploymentOptions.md) ]   
 ### Define a manifest file (optional)
 Add manifest.yml in the root directory with the following content
 ``` yaml

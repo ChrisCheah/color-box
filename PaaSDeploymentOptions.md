@@ -1,5 +1,5 @@
 # Getting Started
-[Main](README)
+[Main](README.md)
 
 ## Deploy to Heroku
 Source: https://devcenter.heroku.com/articles/getting-started-with-python

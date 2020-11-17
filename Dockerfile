@@ -1,5 +1,5 @@
 # Use Python Official Image as Base
-FROM python:3
+FROM python:3.9
 
 # Create a working directory
 WORKDIR /app
@@ -11,4 +11,4 @@ COPY . .
 RUN pip install -r requirements.txt
 
 # Start-up Command
-CMD ["gunicorn", "--workers=1", "--bind=0.0.0.0:5000", "color-boxes:app"]
+CMD ["gunicorn", "--workers=1", "--bind=0.0.0.0:5011", "wsgi:app"]
