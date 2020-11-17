@@ -20,7 +20,7 @@ python -m flask run --port 5001
 ```
 
 ## Deploy To Cloud Foundry
-[ [PaaS Deployment Options](PaaSDeploymentOptions.md) | [IaaS Deployment Options](IaaSDeploymentOptions.md) ]   
+[ [PaaS Deployment Options](PaaSDeploymentOptions.md) | [IaaS Deployment Options](IaaSDeploymentOptions.md) | [CaaS Deployment Options](GettingStartedDocker.md)]   
 ### Define a manifest file (optional)
 Add manifest.yml in the root directory with the following content
 ``` yaml
