@@ -1,22 +1,25 @@
 
-# Getting Started
-[Main](README)
-## Read this
+# Getting Started (Linux)
+[Main](README.md)
 
 ## Setting Up
-When using Windows WSL, git clone the following into the home directory [Source](https://stackoverflow.com/questions/61596003/pip3-is-unable-to-create-virtual-environment-on-ubuntu-20-04-lts-on-windows-10-b)   
-
-
-```
-cd ~/
+```shell
 git clone https://gitlab.devtools.intel.com/cheahchr/color-box.git
 cd color-box
 python -m venv env
 source env/bin/activate
 ```
 
-## Build & Run with gunicorn (Linux)
-```
+## Build & Run with gunicorn
+```shell
 pip install -r requirements.txt
-gunicorn --bind 0.0.0.0:5000 wsgi:app
+gunicorn --bind 0.0.0.0:5011 wsgi:app
 ```
+
+## Build & Run with Podman
+```shell
+podman build -t colorbox:0.2 .
+podman run -d --name colorbox -p 5011:5011 colorbox:0.2
+```
+
+See [GettingStartedCaaS.md](GettingStartedCaaS.md) for Intel CaaS deployment instructions.

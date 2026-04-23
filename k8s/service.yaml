@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: colorbox
+  labels:
+    app: colorbox
+spec:
+  type: ClusterIP
+  selector:
+    app: colorbox
+  ports:
+    - port: 80
+      targetPort: 5011
+      protocol: TCP

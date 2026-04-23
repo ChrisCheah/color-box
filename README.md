@@ -1,43 +1,37 @@
 
-#Docker Essentials for Python Developers
-https://intel.udemy.com/course/docker-essentials-for-python-developers/learn/lecture/17259344#notes
+# Color Box
 
-# Getting Started
-[ [Linux](GettingStartedLinux.md) ]
-## Setting Up
-``` shell
+A simple RESTful API server built with Python 3.14 and Flask 3.x, containerized with Podman for deployment to Intel CaaS.
+
+## Getting Started
+
+[ [Linux](GettingStartedLinux.md) ] [ [CaaS Deployment](GettingStartedCaaS.md) ]
+
+### Setting Up (Local Development)
+```shell
 git clone https://gitlab.devtools.intel.com/cheahchr/color-box.git
 cd color-box
 python -m venv env
+# Windows
 env\Scripts\activate.bat
+# Linux/macOS
+source env/bin/activate
 ```
-## Build & Run
-``` shell
+
+### Build & Run Locally
+```shell
 pip install -r requirements.txt
-# $env:FLASK_APP = "color-boxes.py" ## Powershell
-set FLASK_APP=color_boxes.py
-python -m flask run --port 5001
+gunicorn --bind 0.0.0.0:5011 wsgi:app
 ```
 
-## Deploy To Cloud Foundry
-[ [PaaS Deployment Options](PaaSDeploymentOptions.md) | [IaaS Deployment Options](IaaSDeploymentOptions.md) | [CaaS Deployment Options](GettingStartedDocker.md)]   
-### Define a manifest file (optional)
-Add manifest.yml in the root directory with the following content
-``` yaml
----
-version: 1
-applications:
-    - name: color-boxes
-      random-route: true
-      memory: 64M
-      buildpacks: 
-        - https://github.com/cloudfoundry/python-buildpack.git
+### Build & Run with Podman
+```shell
+podman build -t colorbox:0.2 .
+podman run -d --name colorbox -p 5011:5011 colorbox:0.2
 ```
 
-### Steps:
-``` shell
-cf push
-```
+## Deploy to Intel CaaS
+See [GettingStartedCaaS.md](GettingStartedCaaS.md) for full instructions on building, pushing, and deploying to Intel CaaS with Podman and Kubernetes.
 
 ## Available API
 ```
@@ -48,3 +42,12 @@ POST    '/box/<string:color>'              - create an empty box painted with <c
 DELETE  '/box/<string:color>'              - remove box painted with <color>
 PUT     '/box/<string:color>/<int:balls>'  - update number of <balls> in box painted with <color>
 ```
+
+## Tech Stack
+- Python 3.14
+- Flask 3.1.3
+- Gunicorn 25.3.0
+- Podman (OCI container via Containerfile)
+
+## Refactor History
+See [RefactorPlan.md](RefactorPlan.md) for the full refactor plan documenting the migration from Docker/Cloud Foundry to Podman/Intel CaaS.

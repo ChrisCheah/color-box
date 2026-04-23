@@ -1,0 +1,11 @@
+env/
+.git/
+__pycache__/
+*.pyc
+*.md
+*.yml
+Procfile
+Dockerfile
+Containerfile
+.containerignore
+k8s/

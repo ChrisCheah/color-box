@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: colorbox
+  labels:
+    app: colorbox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: colorbox
+  template:
+    metadata:
+      labels:
+        app: colorbox
+    spec:
+      securityContext:
+        runAsNonRoot: true
+      containers:
+        - name: colorbox
+          image: amr-registry-pre.caas.intel.com/ditwebapp/colorbox:0.2
+          ports:
+            - containerPort: 5011
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5011
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5011
+            initialDelaySeconds: 3
+            periodSeconds: 5
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
