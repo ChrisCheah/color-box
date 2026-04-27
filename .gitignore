@@ -1,6 +1,15 @@
 # hosting
 .azure
 
+# Kubeconfig / secrets (contain bearer tokens)
+*kubeconfig*
+amr-fm-compute-cluster.yaml
+*.kubeconfig
+
+# Ad-hoc cluster dumps (kubectl get -o yaml output)
+/colorbox.yaml
+/mdata-toolkit.yaml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

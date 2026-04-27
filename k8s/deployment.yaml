@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: colorbox
+  namespace: mdata-toolkit
   labels:
     app: colorbox
 spec:
@@ -16,9 +17,10 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
+        runAsUser: 10001
       containers:
         - name: colorbox
-          image: amr-registry-pre.caas.intel.com/ditwebapp/colorbox:0.2
+          image: amr-registry.caas.intel.com/mdata-toolkit/colorbox:0.2
           ports:
             - containerPort: 5011
           resources:
@@ -46,3 +48,9 @@ spec:
             capabilities:
               drop:
                 - ALL
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}

@@ -7,8 +7,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY color_boxes.py wsgi.py ./
 
-RUN useradd -r appuser
-USER appuser
+RUN useradd -r -u 10001 appuser
+USER 10001
 
 EXPOSE 5011
 
