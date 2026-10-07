@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "value": "dev-ubuntu-002"
+    },
+    "vmSize": {
+      "value": "Standard_D2s_v3"
+    },
+    "vnetName": {
+      "value": "vnet-westus2-1"
+    },
+    "subnetName": {
+      "value": "default"
+    },
+    "sshPublicKey": {
+      "value": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDlOxwhz/aGs+OcLl1BmSUPBR9WFO5+TLqDOkO0rrskp dev-ubuntu-001-access"
+    },
+    "adminUsername": {
+      "value": "azureuser"
+    }
+  }
+}

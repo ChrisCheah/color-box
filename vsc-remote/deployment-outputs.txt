@@ -1,0 +1,33 @@
+Ubuntu Development VM - Deployment Outputs
+Generated: 2026-07-01 17:23:41
+
+VM DETAILS:
+-----------
+VM Name:        dev-ubuntu-001
+VM ID:          /subscriptions/8439295b-ddf8-4278-bd17-5d22252784aa/resourceGroups/DefaultResourceGroup-westus2/providers/Microsoft.Compute/virtualMachines/dev-ubuntu-001
+Admin User:     azureuser
+Private IP:     10.160.38.68
+Resource Group: DefaultResourceGroup-westus2
+Location:       westus2
+
+SSH CONNECTION:
+---------------
+ssh -i dev-vm-access azureuser@10.160.38.68
+
+SSH CONFIG (add to ~/.ssh/config):
+-----------------------------------
+Host ${vmName}
+  HostName ${nic.properties.ipConfigurations[0].properties.privateIPAddress}
+  User ${adminUsername}
+  IdentityFile dev-vm-access
+  StrictHostKeyChecking no
+
+NEXT STEPS:
+-----------
+1. Verify SSH connectivity
+2. Configure Git SSH authentication
+3. Clone repositories (py-lab, tars, jira-automation)
+4. Set up Python virtual environments
+5. Connect with VS Code Remote SSH
+
+For detailed instructions, see: DEPLOYMENT_GUIDE.md

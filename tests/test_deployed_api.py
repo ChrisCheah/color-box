@@ -1,9 +1,12 @@
-"""End-to-end tests against a deployed color-box API.
+"""End-to-end tests against one or more deployed color-box API endpoints.
 
-Set ``COLORBOX_BASE_URL`` (e.g. ``http://127.0.0.1:8081``) before running, e.g.::
+Set ``COLORBOX_BASE_URL`` (e.g. ``http://127.0.0.1:8081``) and optionally
+``COLORBOX_EXTERNAL_BASE_URL`` (e.g. ``http://colorbox.intel.com``) before
+running, e.g.::
 
     kubectl -n mdata-toolkit port-forward svc/colorbox 8081:80
     $env:COLORBOX_BASE_URL = "http://127.0.0.1:8081"
+    $env:COLORBOX_EXTERNAL_BASE_URL = "http://colorbox.intel.com"
     pytest tests/test_deployed_api.py -v
 """
 import uuid
